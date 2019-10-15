@@ -18,7 +18,7 @@ public class Main {
         }
 
         file = new File(args[1]);
-        Client client = new Client("Иванов", "Иван", "Иван");
+        Client client = new Client("Иванов", "Иван", "Иванович");
         ConsumerBasket basket;
         try {
             basket = new ConsumerBasket(file, client, directory, 1);
