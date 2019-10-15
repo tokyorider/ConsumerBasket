@@ -41,7 +41,7 @@ public class ConsumerBasket {
             while (scanner.hasNext()) {
                 String productName = scanner.next();
                 if (!scanner.hasNextInt()) {
-                    throw new IOException("Некорректный формат файла");
+                    throw new IOException("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ С„РѕСЂРјР°С‚ С„Р°Р№Р»Р°");
                 }
                 Integer num = scanner.nextInt();
                 products.put(new Product(productName), num);
@@ -51,7 +51,7 @@ public class ConsumerBasket {
 
     public void update() throws IOException {
         products = new HashMap<>();
-        System.out.println("Введите вашу корзину");
+        System.out.println("Р’РІРµРґРёС‚Рµ РІР°С€Сѓ РєРѕСЂР·РёРЅСѓ");
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)))
         {
             String str = reader.readLine();
@@ -74,12 +74,12 @@ public class ConsumerBasket {
 
     @Override
     public String toString() {
-        String result = "Заказ N" + orderID + " " + client.getSurname() + " " + client.getName() + " " +
+        String result = "Р—Р°РєР°Р· N" + orderID + " " + client.getSurname() + " " + client.getName() + " " +
                 client.getPathronymic() + " ";
         String date = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         result += date + System.lineSeparator().repeat(2);
 
-        result += "Название" + "\t" + "Цена" + "\t"  + "Количество" + "\t" + "Сумма" + System.lineSeparator().repeat(2);
+        result += "РќР°Р·РІР°РЅРёРµ" + "\t" + "Р¦РµРЅР°" + "\t"  + "РљРѕР»РёС‡РµСЃС‚РІРѕ" + "\t" + "РЎСѓРјРјР°" + System.lineSeparator().repeat(2);
 
         double overallSum = 0;
         for (Map.Entry<Product, Integer> entry : products.entrySet()) {
@@ -91,7 +91,7 @@ public class ConsumerBasket {
             overallSum += sum;
         }
 
-        result += "Итого: " + overallSum;
+        result += "РС‚РѕРіРѕ: " + overallSum;
 
         return result;
     }
